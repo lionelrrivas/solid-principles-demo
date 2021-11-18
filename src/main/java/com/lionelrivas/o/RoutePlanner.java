@@ -1,5 +1,5 @@
 package com.lionelrivas.o;
 
-public interface RoutePlannerStrategy {
+public interface RoutePlanner {
     String planRoute();
 }

@@ -1,6 +1,6 @@
 package com.lionelrivas.o;
 
-public class WalkingRoutePlanner implements RoutePlannerStrategy {
+public class WalkingRoutePlanner implements RoutePlanner {
 
     @Override
     public String planRoute() {

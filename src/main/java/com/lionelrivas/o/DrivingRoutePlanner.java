@@ -1,6 +1,6 @@
 package com.lionelrivas.o;
 
-public class DrivingRoutePlanner implements RoutePlannerStrategy {
+public class DrivingRoutePlanner implements RoutePlanner {
 
 
     @Override

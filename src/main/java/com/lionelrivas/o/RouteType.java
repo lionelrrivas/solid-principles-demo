@@ -12,28 +12,28 @@ public enum RouteType {
 
     WALKING {
         @Override
-        RoutePlannerStrategy getStrategy() {
+        RoutePlanner getStrategy() {
             return new WalkingRoutePlanner();
         }
     },
 
     DRIVING {
         @Override
-        RoutePlannerStrategy getStrategy() {
+        RoutePlanner getStrategy() {
             return new DrivingRoutePlanner();
         }
     },
 
     PUBLIC_TRANSPORT {
         @Override
-        RoutePlannerStrategy getStrategy() {
+        RoutePlanner getStrategy() {
             return new PublicTransportationRoutePlanner();
         }
     },
 
     BIKING {
         @Override
-        RoutePlannerStrategy getStrategy() {
+        RoutePlanner getStrategy() {
             return new BikingRoutePlanner();
         }
     };
@@ -51,5 +51,5 @@ public enum RouteType {
         return ROUTE_TYPE_MAP.get(routeType.toUpperCase());
     }
 
-    abstract RoutePlannerStrategy getStrategy();
+    abstract RoutePlanner getStrategy();
 }
