@@ -1,4 +1,4 @@
-package com.lionelrivas.s;
+package com.lionelrivas.singleresponsibility;
 
 import lombok.Data;
 

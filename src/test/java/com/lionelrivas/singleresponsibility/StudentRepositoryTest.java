@@ -1,4 +1,4 @@
-package com.lionelrivas.s;
+package com.lionelrivas.singleresponsibility;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

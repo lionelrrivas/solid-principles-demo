@@ -1,7 +1,5 @@
-package com.lionelrivas.s;
+package com.lionelrivas.singleresponsibility;
 
-import lombok.extern.apachecommons.CommonsLog;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 @Service
