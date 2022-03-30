@@ -1,6 +1,6 @@
 package com.lionelrivas.l;
 
-public class Sparrow implements Bird {
+public class Sparrow implements FlyingBird, WingFlappingBird {
 
     @Override
     public void flapWings() {

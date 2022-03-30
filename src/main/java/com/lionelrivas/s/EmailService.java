@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class EmailService {
 
     public void sendEmail(EmailMessage emailMessage) {
-        System.out.println();
+        System.out.println("sending email message" + emailMessage);
     }
 }

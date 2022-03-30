@@ -1,14 +1,11 @@
 package com.lionelrivas.l;
 
-public class Ostrich implements Bird {
+public class Ostrich implements WingFlappingBird {
 
     @Override
     public void flapWings() {
         System.out.println("ostrich flapping wings");
     }
 
-    @Override
-    public void fly() {
-        throw new UnsupportedOperationException();
-    }
+
 }

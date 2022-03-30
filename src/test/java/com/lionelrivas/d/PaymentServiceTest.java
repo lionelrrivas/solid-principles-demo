@@ -1,15 +1,14 @@
 package com.lionelrivas.d;
 
+import com.lionelrivas.PaymentClientFactory;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ActiveProfiles;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest(classes = {PaymentService.class, PayPalClient.class, ApplePayClient.class})
-@ActiveProfiles("applepay")
-//@ExtendWith(SpringExtension.class)
+
+@SpringBootTest(classes = {PaymentService.class, ApplePayClient.class, PayPalClient.class, PaymentClientFactory.class})
 class PaymentServiceTest {
 
     @Autowired
@@ -17,6 +16,7 @@ class PaymentServiceTest {
 
     @Test
     void authorizePayment() {
-        assertEquals( "ApplePay authorization", paymentService.authorizePayment());
+        assertEquals( "ApplePay authorization", paymentService.authorizePayment("apple-pay"));
+        assertEquals( "PayPal authorization", paymentService.authorizePayment("paypal"));
     }
 }

@@ -1,11 +1,11 @@
 package com.lionelrivas.d;
 
 
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 @Service
-@Profile("applepay")
+@Qualifier("apple-pay")
 public class ApplePayClient implements PaymentClient {
 
     @Override

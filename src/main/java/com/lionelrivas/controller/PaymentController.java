@@ -4,6 +4,7 @@ import com.lionelrivas.d.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +19,8 @@ public class PaymentController {
         this.paymentService = paymentService;
     }
 
-    @GetMapping(value = "/authorize", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
-    public String authorizePayment() {
-        return paymentService.authorizePayment();
+    @GetMapping(value = "{gateway}/authorize", produces = {MediaType.APPLICATION_JSON_VALUE, MediaType.TEXT_PLAIN_VALUE})
+    public String authorizePayment(@PathVariable(name = "gateway") String gateway) {
+        return paymentService.authorizePayment(gateway);
     }
 }

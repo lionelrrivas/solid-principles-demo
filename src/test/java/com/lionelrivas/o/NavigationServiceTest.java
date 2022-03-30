@@ -14,6 +14,6 @@ class NavigationServiceTest {
         assertEquals(navigationService.planRoute("walking"), "planned WALKING route");
         assertEquals(navigationService.planRoute("biking"), "planned BIKING route");
         assertEquals(navigationService.planRoute("driving"), "planned DRIVING route");
-        assertEquals(navigationService.planRoute("public_transport"), "planned PUBLIC_TRANSPORT route");
+        assertEquals(navigationService.planRoute("public-transport"), "planned PUBLIC_TRANSPORT route");
     }
 }

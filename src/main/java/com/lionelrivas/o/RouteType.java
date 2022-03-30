@@ -10,38 +10,44 @@ import java.util.stream.Collectors;
 
 public enum RouteType {
 
-    WALKING {
+    WALKING("WALKING") {
         @Override
         RoutePlanner getStrategy() {
             return new WalkingRoutePlanner();
         }
     },
 
-    DRIVING {
+    DRIVING("DRIVING") {
+
         @Override
         RoutePlanner getStrategy() {
             return new DrivingRoutePlanner();
         }
     },
 
-    PUBLIC_TRANSPORT {
+    PUBLIC_TRANSPORT("PUBLIC-TRANSPORT") {
         @Override
         RoutePlanner getStrategy() {
             return new PublicTransportationRoutePlanner();
         }
     },
 
-    BIKING {
+    BIKING("BIKING") {
         @Override
         RoutePlanner getStrategy() {
             return new BikingRoutePlanner();
         }
     };
 
+    private final String code;
+
     private static final Map<String, RouteType> ROUTE_TYPE_MAP;
 
+    RouteType(String code) {
+        this.code = code;
+    }
     static {
-        ROUTE_TYPE_MAP = Arrays.stream(values()).collect(Collectors.toMap(Enum::name, Function.identity()));
+        ROUTE_TYPE_MAP = Arrays.stream(values()).collect(Collectors.toMap(routeType -> routeType.code, Function.identity()));
     }
 
     public static RouteType getRouteType(String routeType) {

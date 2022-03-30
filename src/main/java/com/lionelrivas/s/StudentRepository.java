@@ -6,6 +6,6 @@ import org.springframework.stereotype.Service;
 public class StudentRepository {
 
     public Student save(Student student) {
-        return new Student();
+        return student;
     }
  }

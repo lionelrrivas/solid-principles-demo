@@ -33,10 +33,11 @@ public class WebClientConfig {
                 }).build();
 
         HttpClient httpClient = HttpClient.create()
-                .tcpConfiguration(tcpClient -> tcpClient.option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
-                        .doOnConnected(conn -> conn
-                                .addHandlerLast(new ReadTimeoutHandler(10))
-                                .addHandlerLast(new WriteTimeoutHandler(10))));
+                .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
+                .doOnConnected(connection -> connection
+                        .addHandlerLast(new ReadTimeoutHandler(10))
+                        .addHandlerLast(new WriteTimeoutHandler(10)));
+
         return WebClient.builder()
                 .clientConnector(new ReactorClientHttpConnector(httpClient))
                 .exchangeStrategies(exchangeStrategies)
