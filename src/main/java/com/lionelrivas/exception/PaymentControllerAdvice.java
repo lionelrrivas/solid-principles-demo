@@ -1,6 +1,6 @@
 package com.lionelrivas.exception;
 
-import com.lionelrivas.o.ErrorResponse;
+import com.lionelrivas.open_closed_principle.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

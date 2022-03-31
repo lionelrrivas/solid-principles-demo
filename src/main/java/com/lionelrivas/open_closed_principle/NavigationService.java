@@ -1,4 +1,4 @@
-package com.lionelrivas.o;
+package com.lionelrivas.open_closed_principle;
 
 import org.springframework.stereotype.Service;
 

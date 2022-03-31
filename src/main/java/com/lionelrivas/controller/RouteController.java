@@ -1,6 +1,6 @@
 package com.lionelrivas.controller;
 
-import com.lionelrivas.o.NavigationService;
+import com.lionelrivas.open_closed_principle.NavigationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,6 +1,6 @@
 package com.lionelrivas.o;
 
-import org.junit.Assert;
+import com.lionelrivas.open_closed_principle.NavigationService;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
