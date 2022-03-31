@@ -1,4 +1,4 @@
-package com.lionelrivas.o;
+package com.lionelrivas.open_closed_principle;
 
 public class PublicTransportationRoutePlanner implements RoutePlanner {
 

@@ -1,4 +1,4 @@
-package com.lionelrivas.o;
+package com.lionelrivas.open_closed_principle;
 
 import com.lionelrivas.exception.RouteNotFoundException;
 import org.apache.commons.lang3.StringUtils;
