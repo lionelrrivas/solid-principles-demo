@@ -1,27 +1,42 @@
 package com.lionelrivas.singleresponsibility;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
 
-@SpringBootTest(classes = {StudentRegistrationService.class, StudentRepository.class, EmailService.class})
+@ExtendWith(MockitoExtension.class)
 class StudentRegistrationServiceTest {
 
-    @Autowired
+    @InjectMocks
     StudentRegistrationService studentRegistrationService;
 
-    // these dependencies should be mocked
-//    @MockBean
-//    StudentRepository studentRepository;
-//
-//    @MockBean
-//    EmailService emailService;
+    @Mock
+    StudentRepository studentRepository;
+
+    @Mock
+    EmailService emailService;
 
     @Test
-    void registerStudent() {
-        assertNotNull(studentRegistrationService.registerStudent(new Student()));
+    void registerStudent_withValidInput_expectSuccessfulRegistration() {
+        Student student = new Student();
+        student.setFirstName("John");
+        student.setLastName("Doe");
+        student.setEmailAddress("johndoe@emailaddress.com");
+
+        when(studentRepository.save(student)).thenReturn(student);
+        doNothing().when(emailService).sendEmail(any());
+
+        Student registeredStudent = studentRegistrationService.registerStudent(student);
+        assertNotNull(registeredStudent);
+        assertEquals(student, registeredStudent);
     }
 
 }
