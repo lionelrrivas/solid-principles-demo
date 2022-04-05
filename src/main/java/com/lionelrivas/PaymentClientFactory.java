@@ -14,17 +14,17 @@ import java.util.stream.Collectors;
 @Component
 public class PaymentClientFactory {
 
-    private final Map<String, PaymentClient> SERVICE_MAP;
+    private final Map<String, PaymentClient> CLIENT_MAP;
 
     public PaymentClientFactory(List<PaymentClient> clients) {
-        this.SERVICE_MAP = clients.stream()
+        this.CLIENT_MAP = clients.stream()
                 .collect(Collectors.toMap(client -> client.getClass().getDeclaredAnnotation(Qualifier.class).value(), Function.identity()));
     }
 
     public PaymentClient getPaymentClient(String name) {
-        if (StringUtils.isEmpty(name) || !SERVICE_MAP.containsKey(name)) {
+        if (StringUtils.isEmpty(name) || !CLIENT_MAP.containsKey(name)) {
             throw new ClientNotFoundException("No client found for " + name);
         }
-        return SERVICE_MAP.get(name);
+        return CLIENT_MAP.get(name);
     }
 }

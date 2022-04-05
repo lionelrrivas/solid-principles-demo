@@ -51,7 +51,7 @@ public enum RouteType {
     }
 
     public static RouteType getRouteType(String routeType) {
-        if (StringUtils.isEmpty(routeType) || ROUTE_TYPE_MAP.get(routeType.toUpperCase()) == null) {
+        if (StringUtils.isEmpty(routeType) || !ROUTE_TYPE_MAP.containsKey(routeType.toUpperCase())) {
             throw new RouteNotFoundException("Unable to find route strategy for " + routeType);
         }
         return ROUTE_TYPE_MAP.get(routeType.toUpperCase());
